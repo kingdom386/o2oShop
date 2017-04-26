@@ -201,6 +201,11 @@
             border-radius: 0.1rem;
         }
 
+        .sel-active .icon-my-ok-gray:before {
+            content: "\e60d";
+            color: #000;
+        }
+
 
 
     </style>
@@ -222,7 +227,7 @@
             <div class="order-payment-method-items sel-active">
                 <span class="payment-items-left-icon iconfont icon-my-weixin"></span>
                 <!--payment-items-left-icon-->
-                <span class="payment-sel-radio iconfont icon-my-ok"><input type="radio" name="payWays"></span>
+                <span class="payment-sel-radio iconfont icon-my-ok-gray"><input type="radio"  checked name="payWays"></span>
                 <div class="payment-items-content">
                     <p class="payment-title">微信支付</p>
                     <p class="payment-intro">使用微信支付，安全便捷</p>
@@ -230,7 +235,7 @@
 
             </div>
             <!--order-payment-method-items-->
-            <div class="order-payment-method-items sel-active">
+            <div class="order-payment-method-items">
                 <span class="payment-items-left-icon bank-pay-icon"></span>
                 <!--payment-items-left-icon-->
                 <span class="payment-sel-radio iconfont icon-my-ok-gray"><input type="radio" name="payWays"></span>
@@ -257,11 +262,11 @@
 <script type="text/javascript" src="js/size.js"></script>
 <script type="text/javascript" src="js/TouchScroll.js"></script>
 <script type="text/javascript">
-    $(".payment-sel-radio").on('touchend', function () {
+    $(".order-payment-method-items").on('touchend', function () {
         $('.order-payment-method-items').removeClass('sel-active');
-        $(".payment-sel-radio").removeAttr('checked');
+        $(".payment-sel-radio input[type^='radio']").removeAttr('checked');
         $("input[type^='radio']", this).attr('checked', 'checked');
-        $(this).parents('.order-payment-method-items').addClass('sel-active');
+        $(this).addClass('sel-active');
     });
 </script>
 
